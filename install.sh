@@ -30,15 +30,15 @@ sudo apt-get install -y python3-gpiozero
 
 #Step 5) Download Python script-----------------------------
 cd /opt/
-sudo mkdir RetroFlag
-cd /opt/RetroFlag
-script=SafeShutdown.py
+sudo mkdir FanControl
+cd /opt/FanControl
+script=fan_control.py
 
 if [ -e $script ];
 	then
-		echo "Script SafeShutdown.py already exists. Doing nothing."
+		echo "Script fan_control.py already exists. Doing nothing."
 	else
-		wget "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/SafeShutdown.py"
+		wget "https://raw.githubusercontent.com/sheriff02/RaspberryPy/master/fan_control.py"
 fi
 #-----------------------------------------------------------
 
@@ -46,17 +46,17 @@ fi
 cd /etc/
 RC=rc.local
 
-if grep -q "sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&" "$RC";
+if grep -q "sudo python3 \/opt\/FanControl\/fan_control.py \&" "$RC";
 	then
 		echo "File /etc/rc.local already configured. Doing nothing."
 	else
-		sed -i -e "s/^exit 0/sudo python3 \/opt\/RetroFlag\/SafeShutdown.py \&\n&/g" "$RC"
+		sed -i -e "s/^exit 0/sudo python3 \/opt\/FanControl\/fan_control.py \&\n&/g" "$RC"
 		echo "File /etc/rc.local configured."
 fi
 #-----------------------------------------------------------
 
 #Step 7) Reboot to apply changes----------------------------
-echo "RetroFlag Pi Case installation done. Will now reboot after 3 seconds."
+echo "FanControl installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
 #-----------------------------------------------------------

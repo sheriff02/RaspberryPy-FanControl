@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author: Andreas Spiesse
+# Author: Andreas Spiess
 # Editor: Sheriff02
 import os
 import time
@@ -14,7 +14,7 @@ iTemp = 0.4  # Коэфф. интегральной составляющей П�
 
 # Settings
 fanPin = 18  # The pin ID, edit here to change it
-desiredTemp = 45  # The maximum temperature in Celsius after which we trigger the fan
+desiredTemp = 50  # The maximum temperature in Celsius after which we trigger the fan
 fan_speed = 100  # default value
 fan_speed_min = 20
 fan_speed_max = 100
