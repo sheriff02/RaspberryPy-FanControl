@@ -7,7 +7,7 @@ Turn switch "SAFE SHUTDOWN" to ON.
 
 Example for RetroPie:
 
--------------------Multi Switch Shutdown----------------- Updated: 2019.2.14
+-------------------PWM Fan Control With PID----------------- Updated: 2019.05.22
 
 Multi Switch Shutdown with advanced shutdown features for more natural behaviour:
 
@@ -27,5 +27,5 @@ Make sure internet connected.
 Make sure keyboard connected.
 Press F4 enter terminal.
 In the terminal, type the one-line command below(Case sensitive):
-wget -O - "https://raw.githubusercontent.com/RetroFlag/retroflag-picase/master/install.sh" | sudo bash
+wget -O - "https://raw.githubusercontent.com/sheriff02/RaspberryPy/master/fan_control.py" | sudo bash
 
