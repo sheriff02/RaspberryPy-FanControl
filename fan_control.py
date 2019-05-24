@@ -8,13 +8,13 @@ import signal
 import sys
 import RPi.GPIO as GPIO
 
-sum = 0  # буффер для суммирования внутри ПИДа
-pTemp = 15  # Коэфф. пропорциональной составляющей ПИДа
-iTemp = 0.4  # Коэфф. интегральной составляющей ПИДа
+sum = 0  
+pTemp = 15  
+iTemp = 0.4  
 
 # Settings
 fanPin = 18  # The pin ID, edit here to change it
-desiredTemp = 50  # The maximum temperature in Celsius after which we trigger the fan
+desiredTemp = 54  # The maximum temperature in Celsius after which we trigger the fan
 fan_speed = 100  # default value
 fan_speed_min = 20
 fan_speed_max = 100
@@ -48,7 +48,7 @@ def handleFan():
         sum = 100
     if sum < -100:
         sum = -100
-    # print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fanSpeed %5d" % (actualTemp,diff,pDiff,iDiff,fanSpeed))
+    print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fanSpeed %5d" % (actualTemp,diff,pDiff,iDiff,fanSpeed))
     myPWM.ChangeDutyCycle(fan_speed)
     return ()
 
