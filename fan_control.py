@@ -2,15 +2,14 @@
 # Author: Andreas Spiess
 # Editor: Sheriff02
 import os
-import time
+# import time
 from time import sleep
-import signal
-import sys
+# import signal
+# import sys
 import RPi.GPIO as GPIO
+from collections import deque
 
-sum = 0  
-pTemp = 20
-iTemp = 0.1
+
 
 # Settings
 fanPin = 18  # The pin ID, edit here to change it
@@ -18,6 +17,13 @@ desiredTemp = 54  # The maximum temperature in Celsius after which we trigger th
 fan_speed = 100  # default value
 fan_speed_min = 20
 fan_speed_max = 100
+
+pTemp = 20
+iTemp = 0.1
+output_buffer_length = 10
+
+sum = 0
+output_buffer = deque(maxlen=output_buffer_length)
 
 
 def getCPUtemperature():
@@ -40,6 +46,8 @@ def handleFan():
     pDiff = diff * pTemp
     iDiff = sum * iTemp
     fan_speed = pDiff + iDiff
+    output_buffer.append(fan_speed)
+    fan_speed = average(output_buffer)
     if fan_speed > fan_speed_max:
         fan_speed = fan_speed_max
     if fan_speed < fan_speed_min:
@@ -48,7 +56,8 @@ def handleFan():
         sum = 100
     if sum < -100:
         sum = -100
-    print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fan_speed %5d" % (actualTemp,diff,pDiff,iDiff,fan_speed))
+    print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fan_speed %5d" % (
+        actualTemp, diff, pDiff, iDiff, fan_speed))
     myPWM.ChangeDutyCycle(fan_speed)
     return ()
 
@@ -56,6 +65,10 @@ def handleFan():
 def setPin(mode):  # A little redundant function but useful if you want to add logging
     GPIO.output(fanPin, mode)
     return ()
+
+
+def average(iterable):
+    return sum(iterable) / len(iterable)
 
 
 if __name__ == '__main__':
