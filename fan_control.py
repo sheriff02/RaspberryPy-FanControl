@@ -9,8 +9,8 @@ import sys
 import RPi.GPIO as GPIO
 
 sum = 0  
-pTemp = 15  
-iTemp = 0.4  
+pTemp = 20
+iTemp = 0.1
 
 # Settings
 fanPin = 18  # The pin ID, edit here to change it
@@ -48,7 +48,7 @@ def handleFan():
         sum = 100
     if sum < -100:
         sum = -100
-    print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fanSpeed %5d" % (actualTemp,diff,pDiff,iDiff,fanSpeed))
+    print("actualTemp %4.2f TempDiff %4.2f pDiff %4.2f iDiff %4.2f fan_speed %5d" % (actualTemp,diff,pDiff,iDiff,fan_speed))
     myPWM.ChangeDutyCycle(fan_speed)
     return ()
 
