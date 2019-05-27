@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Author: Andreas Spiess
-# Editor: Sheriff02, GusevMihail
+# Authors: Sheriff02, GusevMihail
+# Based on idea of: Andreas Spies
 import os
 # import time
 from time import sleep
@@ -11,15 +11,14 @@ from collections import deque
 
 # Settings
 fanPin = 18  # The pin ID, edit here to change it
-desiredTemp = 54  # The maximum temperature in Celsius after which we trigger the fan
-fan_speed_min = 20
-fan_speed_max = 100
+desiredTemp = 54  # The maximum temperature in Celsius after which we trigger the fan and work to "return" to it
+fan_speed_min = 20  # Minimal speed of fan, if more lower - going off. Because most of fans very loud on low PWM
+fan_speed_max = 100  # Maximum speed of fan
 
-pTemp = 20
-iTemp = 0.1
-output_buffer_length = 10
+pTemp = 20  # Proportional coef. of PI(D)
+iTemp = 0.1  # Integral coef. of PI(D)
+output_buffer_length = 10  # Buffer for more stable fan speed
 
-# sum = 0
 output_buffer = deque(maxlen=output_buffer_length)
 
 
@@ -106,8 +105,6 @@ fan_PID = PID(current_value=getCPUtemperature(),
 
 
 def handleFan(PID):
-    # global fan_speed, sum
-    # actualTemp = getCPUtemperature()
     PID.update(getCPUtemperature())
     fan_speed = PID.output()
     myPWM.ChangeDutyCycle(fan_speed)
