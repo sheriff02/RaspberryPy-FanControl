@@ -7,9 +7,13 @@ Example for RetroPie:
 -------------------PWM Fan Control With PID----------------- Updated: 2019.05.28
 
 Fan control script with PI(D) regulator:
+
 Change pTemp and iTemp coefficients if you have another fan.
+
 desiredTemp = XX  - temperature in celsius degrees, that fan system should to maintain.
+
 fanPin = 18 - number of pin in GPIO numbering, where connected control signal to open transistor.
+
 
 
 -------------------INSTALL SCRIPT-----------------
