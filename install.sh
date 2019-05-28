@@ -56,7 +56,16 @@ fi
 #-----------------------------------------------------------
 
 #Step 7) Reboot to apply changes----------------------------
-echo "FanControl installation done. Will now reboot after 3 seconds."
+echo "FanControl Script installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
 #-----------------------------------------------------------
+
+
+
+
+
+
+
+
+

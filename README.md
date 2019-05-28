@@ -22,5 +22,5 @@ Make sure keyboard connected.
 Press F4 enter terminal.
 In the terminal, copy or type the one-line command below(Case sensitive):
 
-wget -O - "https://github.com/sheriff02/RaspberryPy/blob/master/install.sh" | sudo bash
+wget -O - "https://raw.githubusercontent.com/sheriff02/RaspberryPy/master/install.sh" | sudo bash
 
