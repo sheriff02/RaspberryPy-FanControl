@@ -21,5 +21,6 @@ Make sure internet connected.
 Make sure keyboard connected.
 Press F4 enter terminal.
 In the terminal, copy or type the one-line command below(Case sensitive):
+
 wget -O - "https://raw.githubusercontent.com/sheriff02/RaspberryPy/master/fan_control.py" | sudo bash
 
