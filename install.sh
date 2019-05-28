@@ -60,12 +60,3 @@ echo "FanControl installation done. Will now reboot after 3 seconds."
 sleep 3
 sudo reboot
 #-----------------------------------------------------------
-
-
-
-
-
-
-
-
-
