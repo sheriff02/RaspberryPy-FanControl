@@ -1,6 +1,6 @@
 # RaspberryPy
 
-![Cat]https://github.com/sheriff02/RaspberryPy/blob/master/cooler_005_1_ed.png
+![img]https://github.com/sheriff02/RaspberryPy/blob/master/cooler_005_1_ed.png
 
 Example for RetroPie:
 
