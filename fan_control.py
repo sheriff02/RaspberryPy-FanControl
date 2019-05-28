@@ -67,10 +67,11 @@ class PID:
     @staticmethod
     def _limits(number, lower_limit, upper_limit):
         if number > upper_limit:
-            number = upper_limit
+            return upper_limit
         elif number < lower_limit:
-            number = lower_limit
-        return number
+            return lower_limit
+        else:
+            return number
 
     def output(self):
         self.reg_error = self.current_value - self.target_value
@@ -83,6 +84,9 @@ class PID:
         self.out_buffer.append(output)
         if self.is_average_out:
             self.out = self._average(self.out_buffer)
+
+        self.out = self._limits(self.out, self.out_min, self.out_max)
+
         return self.out
 
     def update(self, current_value):
