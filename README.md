@@ -1,31 +1,22 @@
 # RaspberryPy
 
-retroflag-picase (nespi+, superpi, megapi case)
-RetroFlag Pi-Case Safe Shutdown
-
-Turn switch "SAFE SHUTDOWN" to ON.
+![Cat]https://github.com/sheriff02/RaspberryPy/blob/master/cooler_005_1_ed.png
 
 Example for RetroPie:
 
--------------------PWM Fan Control With PID----------------- Updated: 2019.05.22
+-------------------PWM Fan Control With PID----------------- Updated: 2019.05.28
 
-Multi Switch Shutdown with advanced shutdown features for more natural behaviour:
+Fan control script with PI(D) regulator:
+Change pTemp and iTemp coefficients if you have another fan.
+desiredTemp = XX  - temperature in celsius degrees, that fan system should to maintain.
+fanPin = 18 - number of pin in GPIO numbering, where connected control signal to open transistor.
 
-If you press restart if emulator is currently running, then you will be kicked back to ES main menu.
 
-If you press restart in ES main screen, ES will be restartet (no reboot!), good for quick saving metadata or internal saves.
-
-If you press power-off then Raspberry will shutdown
-
-All metadata is always saved
-
-Multi Switch Shutdown by crcerror at here https://github.com/crcerror/retroflag-picase
-
--------------------Multi Switch Shutdown-----------------
+-------------------INSTALL SCRIPT-----------------
 
 Make sure internet connected.
 Make sure keyboard connected.
 Press F4 enter terminal.
-In the terminal, type the one-line command below(Case sensitive):
+In the terminal, copy or type the one-line command below(Case sensitive):
 wget -O - "https://raw.githubusercontent.com/sheriff02/RaspberryPy/master/fan_control.py" | sudo bash
 
