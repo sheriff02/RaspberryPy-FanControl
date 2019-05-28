@@ -2,8 +2,6 @@
 
 ![img](https://github.com/sheriff02/RaspberryPy/blob/master/cooler_005_1_ed.png)
 
-Example for RetroPie:
-
 -------------------PWM Fan Control With PID----------------- Updated: 2019.05.28
 
 Fan control script with PI(D) regulator:
